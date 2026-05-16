@@ -36,6 +36,70 @@
 </header>
 
 <main style="position: relative;">
+  <section class="product-discovery" aria-labelledby="product-discovery-title">
+    <div class="search-panel">
+      <div class="search-panel__header">
+        <div>
+          <p class="eyebrow">Find your next watch</p>
+          <h2 id="product-discovery-title">Search and filter the collection</h2>
+        </div>
+        <button id="clearFilters" class="clear-filters" type="button">Clear filters</button>
+      </div>
+
+      <div class="search-grid">
+        <label class="field field--wide" for="watchSearch">
+          <span>Search</span>
+          <input
+            id="watchSearch"
+            type="search"
+            placeholder="Search by brand, style, material, color..."
+            autocomplete="off"
+          >
+        </label>
+
+        <label class="field" for="categoryFilter">
+          <span>Category</span>
+          <select id="categoryFilter">
+            <option value="">All categories</option>
+            <option value="mens">Men's</option>
+            <option value="womens">Women's</option>
+            <option value="smartwatch">Smartwatch</option>
+          </select>
+        </label>
+
+        <label class="field" for="brandFilter">
+          <span>Brand</span>
+          <select id="brandFilter">
+            <option value="">All brands</option>
+          </select>
+        </label>
+
+        <label class="field" for="priceFilter">
+          <span>Price</span>
+          <select id="priceFilter">
+            <option value="">Any price</option>
+            <option value="0-2000">Under ₹2,000</option>
+            <option value="2000-5000">₹2,000 - ₹5,000</option>
+            <option value="5000-10000">₹5,000 - ₹10,000</option>
+            <option value="10000-999999">₹10,000+</option>
+          </select>
+        </label>
+
+        <label class="field" for="strapFilter">
+          <span>Strap</span>
+          <select id="strapFilter">
+            <option value="">Any strap</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="filter-summary" aria-live="polite">
+        <span id="resultCount">Showing all watches</span>
+        <span id="activeFilters"></span>
+      </div>
+    </div>
+  </section>
+
   <section id="mens-watches" class="watches">
     <h2 >Men's Watches</h2>
     <div class="container2">
