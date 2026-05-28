@@ -178,19 +178,29 @@ document.addEventListener('DOMContentLoaded', function() {
   modalBtns.forEach(btn => {
     btn.addEventListener('click', function() {
       const modalTarget = this.getAttribute('data-modal-target');
-      const modal = document.querySelector(modalTarget);
-      modal.style.display = 'block';
+      if (!modalTarget) return;
 
-      const closeBtn = modal.querySelector('.close-btn');
+      const modal = document.querySelector(modalTarget);
+      if (!modal) return;
+
+      modal.style.display = 'block';
+    });
+  });
+
+  modals.forEach(modal => {
+    const closeBtn = modal.querySelector('.close-btn');
+    if (closeBtn) {
       closeBtn.addEventListener('click', function() {
         modal.style.display = 'none';
       });
+    }
+  });
 
-      window.addEventListener('click', function(e) {
-        if (e.target === modal) {
-          modal.style.display = 'none';
-        }
-      });
+  window.addEventListener('click', function(e) {
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
     });
   });
 });
